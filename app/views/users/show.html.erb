@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag(current_user.file, style: 'height:50px;width:50px;') %>
+<%= "#{current_user.first_name} #{current_user.last_name}" %><br>
+<%= current_user.email %><br>
+<%= current_user.department&.name %><br><br>
+<%= link_to 'Edit', edit_user_path(current_user) %>

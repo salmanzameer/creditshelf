@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<% @groups.each_with_index do |group, i| %>
+<%= "Group-#{i + 1}-#{group.id} "%>
+<br>
+<% group.lunch_groups.each do |lg| %>
+	<%= image_tag(lg.user.file, style: 'height:50px;width:50px;') if lg.user.file.present? %>
+	<%= "#{lg.user.first_name} #{lg.user.last_name} - #{lg.user.id} - #{lg.user&.department&.name}" %>
+	<br>
+<% end %>
+<br><br><br><br>
+<% end %>

@@ -1,0 +1,28 @@
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :first_name %> 
+  <%= f.text_field :first_name, required: true %><br><br>
+  <%= f.label :last_name %> 
+  <%= f.text_field :last_name, required: true %><br><br>
+  <%= f.label :email %> 
+  <%= f.email_field :email, required: true %><br><br>
+  <%= f.file_field :photo, accept: 'image/png,image/jpeg'%>
+  <% if user.new_record? %>
+    <%= f.label :password %> 
+    <%= f.password_field :password, required: true %><br><br>
+    <%= f.select :department_id, Department.all.pluck(['name', 'id']), { prompt: 'Select One', required: true }%>
+  <% end %>
+  <div class="actions">
+    <%= f.submit user.new_record? ? 'Creare Employee' : 'Update' %>
+  </div>
+<% end %>
