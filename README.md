@@ -6,7 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-  '2.6.4'
+  2.6.4
   
 * Rails version
   6.0.2
@@ -18,5 +18,6 @@ Things you may want to cover:
   create batabase
   run seed (it will create departments, 50 employee, 1 admin, and also greate group for each employee)
 * How to run the test suite
-  rspec spec
+   rspec spec
+   
 * ...
